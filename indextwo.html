@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CAPTCHA + Soldier GLB</title>
+  <style>
+    body { margin: 0; overflow: hidden; }
+    canvas { display: block; }
+
+    #ui {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 15px;
+      font-family: sans-serif;
+      border-radius: 8px;
+      max-width: 300px;
+    }
+
+    input, button {
+      margin-top: 10px;
+      padding: 8px;
+      font-size: 1em;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    #game-over {
+      color: red;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    #start-game {
+      background-color: green;
+      color: white;
+      font-weight: bold;
+    }
+  </style>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.1/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.1/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div id="ui">
+    <div><strong>Solve 10 CAPTCHAs in 20 seconds</strong></div>
+    <button id="start-game">Start Game</button>
+    <div id="captcha-question"></div>
+    <input type="text" id="captcha-input" placeholder="Your answer" disabled />
+    <button id="submit" disabled>Submit</button>
+    <div id="progress">Solved: 0/10</div>
+    <div id="timer">Time left: 20s</div>
+    <div id="game-over"></div>
+  </div>
+  <canvas id="canvas"></canvas>
+
+  <script type="module" src="maintwo.js"></script>
+</body>
+</html>
